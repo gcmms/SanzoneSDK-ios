@@ -13,7 +13,8 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "SANZONE-sdk"
+            name: "SANZONE-sdk",
+            path: "Sources/"
         ),
         .testTarget(
             name: "SANZONE-sdk-iosTests",
