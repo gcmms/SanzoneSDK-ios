@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Int {
+public extension Int {
     func formattedString(mask: String) -> String {
         let numberFormatter = NumberFormatter()
         numberFormatter.minimumIntegerDigits = mask.count

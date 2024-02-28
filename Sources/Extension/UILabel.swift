@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension LabelComponent {
+public extension LabelComponent {
 
     convenience init(text: String = "", size: CGFloat, weight: UIFont.Weight) {
         self.init()

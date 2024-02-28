@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIViewController {
+public extension UIViewController {
 
     func configureNavigationBar(textColor: UIColor = UIColor.white) {
         let appearance = UINavigationBarAppearance()

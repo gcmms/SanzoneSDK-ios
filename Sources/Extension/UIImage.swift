@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum Assets: String {
+public enum Assets: String {
     case brandLogo = "logoIcon"
     case loadingImageView
     case checkboxChecked
@@ -22,7 +22,7 @@ enum Assets: String {
     case DemoImage// TODO REMOVE
 }
 
-enum AssetsSystem: String {
+public enum AssetsSystem: String {
     case envelope
     case lock
     case playTV = "play.tv"
@@ -39,7 +39,7 @@ enum AssetsSystem: String {
     case done = "arrowshape.right.fill"
 }
 
-extension UIImage {
+public extension UIImage {
 
     static func getAssets(_ value: Assets) -> UIImage {
         return UIImage(named: value.rawValue) ?? UIImage()
@@ -50,7 +50,7 @@ extension UIImage {
     }
 }
 
-extension UIImageView {
+public extension UIImageView {
 
     convenience init(imageAssets: Assets, radius: CGFloat = 0) {
         self.init()

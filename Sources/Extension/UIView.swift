@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension UIView {
+public extension UIView {
 
     convenience init(backgroud: UIColor) {
         self.init()
@@ -110,7 +110,7 @@ extension UIView {
     }
 }
 
-extension CACornerMask {
+public extension CACornerMask {
     static let bottomLeft = CACornerMask.layerMinXMaxYCorner
     static let bottomRight = CACornerMask.layerMaxXMaxYCorner
     static let topLeft = CACornerMask.layerMinXMinYCorner

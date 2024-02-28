@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LabelComponent: UILabel {
+public class LabelComponent: UILabel {
 
     init() {
         super.init(frame: .zero)

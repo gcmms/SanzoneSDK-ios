@@ -9,14 +9,14 @@
 import Foundation
 import UIKit
 
-protocol ViewCodeProtocol {
+public protocol ViewCodeProtocol {
     func setupViewCodeElement()
     func addSubviews()
     func defineSubviewConstraints()
     func configureView()
 }
 
-extension ViewCodeProtocol {
+public extension ViewCodeProtocol {
     func setupViewCodeElement() {
         addSubviews()
         defineSubviewConstraints()

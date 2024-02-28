@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum ColorValue: String {
+public enum ColorValue: String {
     case primaryColor
     case backgroudColor
     case cardColor
@@ -19,7 +19,7 @@ enum ColorValue: String {
     case buttonColorError
 }
 
-extension UIColor {
+public extension UIColor {
 
     convenience init?(value: ColorValue) {
         self.init(named: value.rawValue)
