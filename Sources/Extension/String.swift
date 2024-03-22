@@ -8,11 +8,16 @@
 import Foundation
 import UIKit
 
+
+/// Extensão que adiciona várias funcionalidades úteis à estrutura String.
 public extension String {
+
+    /// Remove os espaços em branco e as quebras de linha do início e do fim da string.
     func trim() -> String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
+    /// Verifica se a string possui um formato de e-mail válido.
     var isValidEmail: Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
@@ -20,14 +25,17 @@ public extension String {
         return emailPred.evaluate(with: self)
     }
 
+    /// Verifica se a string representa um nome válido, com pelo menos dois caracteres.
     var isValidFirstName: Bool {
         return trim().count >= 2
     }
 
+    /// Verifica se a string representa um sobrenome válido, com pelo menos dois caracteres.
     var isValidLastName: Bool {
         return trim().count >= 2
     }
 
+    /// Valida o número de CPF (Cadastro de Pessoa Física) contido na string.
     func validateCPFNumber() -> Bool {
         let cleanVatNumber = self.replacingOccurrences(of: ".", with: "").replacingOccurrences(of: "-", with: "")
         let chars = Array(cleanVatNumber)
@@ -86,6 +94,7 @@ public extension String {
         return div1 == num10 && dv2 == num11
     }
 
+    /// Define diferentes formatos de máscara para a string, como para número de telefone, RG, CPF, etc.
     enum TypeFormart: String {
         case cellPhone = "(##) ##### ####"
         case phone = "(##) #### ####"
@@ -94,6 +103,7 @@ public extension String {
         case cep = "#####-###"
     }
 
+    /// Verifica se a string contém um número de CPF válido.
     var isCPF: Bool {
         let numbers = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         guard numbers.count == 11 else { return false }
@@ -128,12 +138,14 @@ public extension String {
         return temp1 == d1 && temp2 == d2
     }
 
+    /// Verifica se a string contém um número de RG válido.
     var isRG: Bool {
         let numbers = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         guard numbers.count == 9 else { return false }
         return true
     }
 
+    /// Máscara para formatar o número de CPF na string.
     var maskCPF: String {
         var cpf = self
         cpf.insert(".", at: cpf.index(cpf.startIndex, offsetBy: 3))
@@ -143,6 +155,7 @@ public extension String {
         return cpf
     }
 
+    /// Máscara para formatar o número de RG na string.
     var maskRG: String {
         var cpf = self
         cpf.insert(".", at: cpf.index(cpf.startIndex, offsetBy: 2))
@@ -153,14 +166,17 @@ public extension String {
         return cpf
     }
 
+    /// Verifica se a string representa um número de telefone válido.
     var isPhoneNumber: Bool {
         return isPhoneNumber(contValue: 10)
     }
 
+    /// Verifica se a string representa um número de celular válido.
     var isCellNumber: Bool {
         return isPhoneNumber(contValue: 11)
     }
 
+    /// Verifica se a string representa um CEP (Código de Endereçamento Postal) válido.
     var isCep: Bool {
         return isPhoneNumber(contValue: 8)
     }
@@ -175,6 +191,7 @@ public extension String {
         return true
     }
 
+    /// Máscara para formatar o número de telefone na string.
     var maskPhone: String {
         if self.isEmpty {
             return self
@@ -186,10 +203,12 @@ public extension String {
         return mask
     }
 
+    /// Converte a string em um número inteiro.
     var toInt: Int? {
         return Int(self)
     }
 
+    /// Função interna para formatar um número na string com uma máscara específica.
     private func formattedNumber(number: String, mask: String = "## #### ####") -> String {
         let cleanPhoneNumber = number.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         var result = ""
@@ -205,6 +224,7 @@ public extension String {
         return result
     }
 
+    /// Formata a string com base no tipo de formato especificado.
     func formattedNumber(mask: TypeFormart) -> String {
         return formattedNumber(number: self, mask: mask.rawValue)
     }

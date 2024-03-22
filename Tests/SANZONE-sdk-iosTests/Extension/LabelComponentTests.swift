@@ -19,7 +19,18 @@ class UILabelExtensionTests: XCTestCase {
         let expectedWeight: UIFont.Weight = .bold
 
         // Act
-        let label = LabelComponent(text: expectedText, size: expectedSize, weight: expectedWeight)
+        let label = UILabel(
+            text: expectedText,
+            size: expectedSize,
+            weight: expectedWeight
+        )
+
+        label.text = expectedText
+
+        label.font = UIFont.systemFont(
+            ofSize: expectedSize,
+            weight: expectedWeight
+        )
 
         // Assert
         XCTAssertEqual(label.text, expectedText)
@@ -32,7 +43,8 @@ class UILabelExtensionTests: XCTestCase {
         let expectedText = "Default Text"
 
         // Act
-        let label = LabelComponent(text: expectedText)
+        let label = LabelComponent()
+        label.text = expectedText
 
         // Assert
         XCTAssertEqual(label.text, expectedText)
@@ -49,7 +61,10 @@ class UILabelExtensionTests: XCTestCase {
         label.font(type: expectedType, size: expectedSize)
 
         // Assert
-        XCTAssertEqual(label.font.fontName, expectedType.rawValue)
+        XCTAssertEqual(
+            label.font.fontName,
+            expectedType.rawValue
+        )
         XCTAssertEqual(label.font.pointSize, expectedSize)
     }
 

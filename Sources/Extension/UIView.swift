@@ -6,17 +6,27 @@
 //  Copyright © 2022 Gabriel Chirico Mahtuk de Melo Sanzone. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
+/// Extensão que fornece métodos convenientes para manipulação de UIView.
 public extension UIView {
 
+    /// Inicializa uma nova instância de UIView com a cor de fundo especificada.
+    ///
+    /// - Parameter backgroud: A cor de fundo da view.
     convenience init(backgroud: UIColor) {
         self.init()
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = backgroud
     }
-    
+
+    /// Aplica uma sombra à view.
+    ///
+    /// - Parameters:
+    ///   - shadowColor: A cor da sombra.
+    ///   - shadowOpacity: A opacidade da sombra.
+    ///   - shadowOffset: O deslocamento da sombra.
+    ///   - shadowRadius: O raio da sombra.
     func setupShadow(
         shadowColor: CGColor = UIColor.black.cgColor,
         shadowOpacity: Float = 0.2,
@@ -30,6 +40,7 @@ public extension UIView {
         layer.masksToBounds = false
     }
 
+    /// Aplica um gradiente à view.
     func setupGradient() {
         guard let corInicial = UIColor(value: .backgroudColor) else { return }
         let corFinal = corInicial.withAlphaComponent(0.7)
@@ -44,11 +55,22 @@ public extension UIView {
         layer.insertSublayer(gradienteLayer, at: 0)
     }
 
+    /// Define o raio da view.
+    ///
+    /// - Parameter radius: O raio da view.
     func setRadius(radius: CGFloat? = nil) {
         self.layer.cornerRadius = radius ?? self.frame.width / 2
         self.layer.masksToBounds = true
     }
 
+    /// Fixa a view às bordas de outra view com as constantes especificadas.
+    ///
+    /// - Parameters:
+    ///   - view: A view à qual a view atual será fixada.
+    ///   - topConstant: A constante superior.
+    ///   - leadingConstant: A constante de liderança.
+    ///   - bottomConstant: A constante inferior.
+    ///   - trailingConstant: A constante de trilhamento.
     func pinToBounds(
         of view: UIView,
         topConstant: CGFloat = 0,
@@ -64,6 +86,11 @@ public extension UIView {
         ])
     }
 
+    /// Fixa a view às bordas de outra view, opcionalmente utilizando a área segura.
+    ///
+    /// - Parameters:
+    ///   - view: A view à qual a view atual será fixada.
+    ///   - useSafeArea: Um valor booleano que indica se a área segura deve ser utilizada.
     func pinToBounds(of view: UIView, useSafeArea: Bool = false) {
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -74,14 +101,21 @@ public extension UIView {
         ])
     }
 
-    func pinViewToCenter(
-        of view: UIView
-    ) {
+    /// Centraliza a view em outra view.
+    ///
+    /// - Parameter view: A view na qual a view atual será centralizada.
+    func pinViewToCenter(of view: UIView) {
         NSLayoutConstraint.activate([
             self.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            self.centerYAnchor.constraint(equalTo: view.centerYAnchor),        ])
+            self.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
 
+    /// Define o tamanho da view com constantes de largura e altura especificadas.
+    ///
+    /// - Parameters:
+    ///   - widthConstant: A constante de largura da view.
+    ///   - heightConstant: A constante de altura da view.
     func setSizeToView(
         widthConstant: CGFloat? = 0,
         heightConstant: CGFloat? = 0
@@ -97,6 +131,9 @@ public extension UIView {
         NSLayoutConstraint.activate(constraints)
     }
 
+    /// Adiciona uma ou mais subviews à view atual.
+    ///
+    /// - Parameter subviews: As subviews a serem adicionadas à view atual.
     func add(_ subviews: UIView...) {
         subviews.forEach(
             self.addSubview
@@ -105,6 +142,7 @@ public extension UIView {
         for view in subviews { view.translatesAutoresizingMaskIntoConstraints = false }
     }
 
+    /// Remove todas as subviews da view atual.
     func removeAllSubviews() {
         for view in subviews { view.removeFromSuperview() }
     }

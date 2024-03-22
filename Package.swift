@@ -9,7 +9,8 @@ let package = Package(
     products: [
         .library(
             name: "SANZONE-sdk",
-            targets: ["SANZONE-sdk"]),
+            targets: ["SANZONE-sdk"]
+        ),
     ],
     targets: [
         .target(
@@ -18,7 +19,8 @@ let package = Package(
         ),
         .testTarget(
             name: "SANZONE-sdk-iosTests",
-            dependencies: ["SANZONE-sdk"]),
+            dependencies: ["SANZONE-sdk"]
+        ),
     ]
 )
 

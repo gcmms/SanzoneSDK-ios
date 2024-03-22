@@ -2,13 +2,13 @@
 //  UIColor.swift
 //  SanzoneSDK
 //
-//  Created by Gabriel Sanzone - Job on 09/09/22.
-//  Copyright © 2022 Gabriel Chirico Mahtuk de Melo Sanzone. All rights reserved.
+//  Criado por Gabriel Sanzone - Job em 09/09/22.
 //
 
 import Foundation
 import UIKit
 
+/// Enumeração que representa os valores predefinidos de cores utilizados na aplicação.
 public enum ColorValue: String {
     case primaryColor
     case backgroudColor
@@ -19,20 +19,27 @@ public enum ColorValue: String {
     case buttonColorError
 }
 
+/// Extensão que adiciona funcionalidades adicionais à classe UIColor.
 public extension UIColor {
 
+    /// Inicializa uma cor a partir de um valor predefinido de cor.
+    ///
+    /// - Parameter value: O valor predefinido de cor.
     convenience init?(value: ColorValue) {
         self.init(named: value.rawValue)
     }
 
+    /// Inicializa uma cor a partir de um código hexadecimal.
+    ///
+    /// - Parameter hex: O código hexadecimal representando a cor.
     convenience init(hex: String) {
-        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        var cString: String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
 
         if (cString.hasPrefix("#")) {
             cString.remove(at: cString.startIndex)
         }
 
-        var rgbValue:UInt64 = 0
+        var rgbValue: UInt64 = 0
         Scanner(string: cString).scanHexInt64(&rgbValue)
 
         self.init(
@@ -43,6 +50,9 @@ public extension UIColor {
         )
     }
 
+    /// Inicializa uma cor a partir de um código hexadecimal representado por um inteiro.
+    ///
+    /// - Parameter hex: O código hexadecimal representado por um inteiro.
     convenience init(_ hex: UInt) {
         self.init(
             red: CGFloat((hex & 0xFF0000) >> 16) / 255.0,
@@ -52,6 +62,9 @@ public extension UIColor {
         )
     }
 
+    /// Verifica se a cor é clara.
+    ///
+    /// - Returns: `true` se a cor for clara, `false` caso contrário.
     func isLight() -> Bool {
         guard let components = cgColor.components,
             components.count >= 3 else { return false }
@@ -59,6 +72,7 @@ public extension UIColor {
         return !(brightness < 0.5)
     }
 
+    /// Retorna a cor complementar desta cor.
     public var complementaryColor: UIColor {
         if #available(iOS 13, tvOS 13, *) {
             return UIColor { _ in
@@ -69,20 +83,29 @@ public extension UIColor {
         }
     }
 
-    public var lighter: UIColor {
+    /// Retorna uma versão mais clara desta cor.
+    var lighter: UIColor {
         adjust(by: 1.35)
     }
 
-    public var darker: UIColor {
+    /// Retorna uma versão mais escura desta cor.
+    var darker: UIColor {
         adjust(by: 0.94)
     }
 
+    /// Ajusta a cor pelo percentual especificado.
+    ///
+    /// - Parameter percent: O percentual pelo qual a cor será ajustada.
+    /// - Returns: A cor ajustada.
     func adjust(by percent: CGFloat) -> UIColor {
         var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         getHue(&h, saturation: &s, brightness: &b, alpha: &a)
         return UIColor(hue: h, saturation: s, brightness: b * percent, alpha: a)
     }
 
+    /// Cria um gradiente de cores com esta cor e sua cor complementar.
+    ///
+    /// - Returns: Uma matriz de cores representando o gradiente.
     func makeGradient() -> [UIColor] {
         [self, self.complementaryColor, self]
     }

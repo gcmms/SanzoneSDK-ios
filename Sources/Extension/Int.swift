@@ -1,13 +1,18 @@
 //
 //  Int.swift
-//  Zela
+//  SanzoneSDK
 //
-//  Created by Gabriel Chirico Mahtuk de Melo Sanzone on 23/01/24.
+//  Criado por Gabriel Chirico Mahtuk de Melo Sanzone em 23/01/24.
 //
 
 import Foundation
 
 public extension Int {
+
+    /// Retorna uma versão formatada do número como uma string, conforme especificado pela máscara fornecida.
+    ///
+    /// - Parameter mask: A máscara de formatação para aplicar ao número.
+    /// - Returns: Uma string contendo o número formatado conforme a máscara fornecida.
     func formattedString(mask: String) -> String {
         // Transforma o número em uma string
         let numberString = String(self)
