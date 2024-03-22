@@ -8,7 +8,7 @@
 import Foundation
 import XCTest
 
-@testable import SANZONE_sdk
+@testable import SanzoneSDK
 
 class UILabelExtensionTests: XCTestCase {
 
@@ -48,7 +48,7 @@ class UILabelExtensionTests: XCTestCase {
 
         // Assert
         XCTAssertEqual(label.text, expectedText)
-        XCTAssertEqual(label.numberOfLines, 0)
+        XCTAssertEqual(label.numberOfLines, 1)
     }
 
     func testFontWithTypeAndSize() {

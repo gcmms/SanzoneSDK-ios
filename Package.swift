@@ -4,22 +4,22 @@
 import PackageDescription
 
 let package = Package(
-    name: "SANZONE-sdk",
+    name: "SanzoneSDK",
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "SANZONE-sdk",
-            targets: ["SANZONE-sdk"]
+            name: "SanzoneSDK",
+            targets: ["SanzoneSDK"]
         ),
     ],
     targets: [
         .target(
-            name: "SANZONE-sdk",
+            name: "SanzoneSDK",
             path: "Sources/"
         ),
         .testTarget(
             name: "SANZONE-sdk-iosTests",
-            dependencies: ["SANZONE-sdk"]
+            dependencies: ["SanzoneSDK"]
         ),
     ]
 )

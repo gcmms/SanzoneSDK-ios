@@ -7,7 +7,7 @@
 
 import Foundation
 import XCTest
-import SANZONE_sdk
+import SanzoneSDK
 
 class IntExtensionTests: XCTestCase {
 

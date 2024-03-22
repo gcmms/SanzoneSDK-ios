@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import SANZONE_sdk
+@testable import SanzoneSDK
 
 class ViewCodeProtocolTests: XCTestCase {
 
