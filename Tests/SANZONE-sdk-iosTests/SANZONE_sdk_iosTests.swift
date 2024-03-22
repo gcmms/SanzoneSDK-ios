@@ -1,5 +1,5 @@
 import XCTest
-@testable import SANZONE_sdk_ios
+@testable import SANZONE_sdk
 
 final class SANZONE_sdk_iosTests: XCTestCase {
     func testExample() throws {

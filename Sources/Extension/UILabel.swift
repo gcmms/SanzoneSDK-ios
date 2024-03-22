@@ -25,11 +25,11 @@ public extension LabelComponent {
         numberOfLines = 0
     }
 
-    func font(type: UILabelTyoe, size: CGFloat) {
+    func font(type: UILabelType, size: CGFloat) {
         font = UIFont(name: type.rawValue, size: size) ?? .systemFont(ofSize: size)
     }
 
-    enum UILabelTyoe: String {
+    enum UILabelType: String {
         case bold = "HelveticaNeue-Bold"
         case medium = "HelveticaNeue-Medium"
     }
