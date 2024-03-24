@@ -17,7 +17,14 @@ public class LabelComponent: UILabel {
     /// - Nota: Este inicializador deve ser utilizado ao criar um novo componente de rótulo programaticamente.
     public init() {
         super.init(frame: .zero)
-        textColor = UIColor(value: .labelColor)
+        commonInit()
+    }
+
+    // Inicializador personalizado que aceita o texto como parâmetro
+    public init(customText: String) {
+        super.init(frame: .zero)
+        configureText(customText)
+        commonInit()
     }
 
     /// :nodoc:
@@ -25,5 +32,15 @@ public class LabelComponent: UILabel {
     /// Este inicializador não é utilizado neste contexto e deve ser ignorado.
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // Função de configuração comum para inicializadores
+    private func commonInit() {
+        textColor = UIColor(value: .labelColor)
+    }
+
+    // Configura o texto do rótulo
+    private func configureText(_ text: String) {
+        self.text = text
     }
 }
