@@ -42,10 +42,10 @@ public extension UILabel {
     func font(type: UILabelType, size: CGFloat) {
         font = UIFont(name: type.rawValue, size: size) ?? .systemFont(ofSize: size)
     }
+}
 
-    /// Enumeração que representa os tipos de fonte disponíveis para o rótulo.
-    enum UILabelType: String {
-        case bold = "HelveticaNeue-Bold"
-        case medium = "HelveticaNeue-Medium"
-    }
+/// Enumeração que representa os tipos de fonte disponíveis para o rótulo.
+public enum UILabelType: String {
+    case bold = "HelveticaNeue-Bold"
+    case medium = "HelveticaNeue-Medium"
 }

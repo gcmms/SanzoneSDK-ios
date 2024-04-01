@@ -54,7 +54,7 @@ class UILabelExtensionTests: XCTestCase {
     func testFontWithTypeAndSize() {
         // Arrange
         let label = LabelComponent()
-        let expectedType = LabelComponent.UILabelType.bold
+        let expectedType = UILabelType.bold
         let expectedSize: CGFloat = 20.0
 
         // Act
