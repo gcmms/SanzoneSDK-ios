@@ -43,4 +43,9 @@ public class LabelComponent: UILabel {
     private func configureText(_ text: String) {
         self.text = text
     }
+
+    public enum UILabelType: String {
+        case bold = "HelveticaNeue-Bold"
+        case medium = "HelveticaNeue-Medium"
+    }
 }
