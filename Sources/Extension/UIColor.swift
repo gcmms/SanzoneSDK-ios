@@ -73,7 +73,7 @@ public extension UIColor {
     }
 
     /// Retorna a cor complementar desta cor.
-    public var complementaryColor: UIColor {
+    var complementaryColor: UIColor {
         if #available(iOS 13, tvOS 13, *) {
             return UIColor { _ in
                 return self.isLight() ? self.darker : self.lighter
