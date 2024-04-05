@@ -84,14 +84,14 @@ public extension ButtomComponent {
         let image: UIImage?
         let tintImage: UIColor
 
-        init(title: String, style: Style = .normal, image: UIImage? = nil, tintImage: UIColor = .black) {
+        public init(title: String, style: Style = .normal, image: UIImage? = nil, tintImage: UIColor = .black) {
             self.title = title
             self.style = style
             self.image = image
             self.tintImage = tintImage
         }
 
-        enum Style {
+        public enum Style {
             case normal
             case normalCustom(color: ColorValue, titleColor: UIColor)
             case outlined
