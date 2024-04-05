@@ -8,18 +8,18 @@
 import Foundation
 import AVFoundation
 
-protocol PrivacyRequestManagerInterface: AnyObject {
+public protocol PrivacyRequestManagerInterface: AnyObject {
     var isCameraPermissionGranted: Bool { get }
     func requestCameraPermission(completionHandler: @escaping (Bool) -> Void)
 }
 
-class PrivacyRequestManager: PrivacyRequestManagerInterface {
+public class PrivacyRequestManager: PrivacyRequestManagerInterface {
 
-    var isCameraPermissionGranted: Bool {
+    public var isCameraPermissionGranted: Bool {
         return AVCaptureDevice.authorizationStatus(for: .video) == .authorized
     }
 
-    func requestCameraPermission(completionHandler: @escaping (Bool) -> Void) {
+    public func requestCameraPermission(completionHandler: @escaping (Bool) -> Void) {
         AVCaptureDevice.requestAccess(for: .video) { granted in
             DispatchQueue.main.async {
                 completionHandler(granted)
