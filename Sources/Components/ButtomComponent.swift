@@ -8,8 +8,10 @@
 import Foundation
 import UIKit
 
+/// A customizable button component.
 public class ButtomComponent: UIButton  {
 
+    /// A closure representing the action to be executed when the button is tapped.
     public var buttonAction: (() -> Void)?
 
     override public var isHighlighted: Bool {
@@ -24,6 +26,7 @@ public class ButtomComponent: UIButton  {
 
     private var config: Configuration?
 
+    /// Initializes the button component.
     public init() {
         super.init(frame: .zero)
         setupButton()
@@ -59,7 +62,7 @@ public class ButtomComponent: UIButton  {
     }
 
     private func setupButton() {
-        // Configurar aparência do botão
+        // Configure button appearance
         setTitleColor(.black, for: .normal)
         titleLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
         layer.cornerRadius = 25
@@ -67,7 +70,6 @@ public class ButtomComponent: UIButton  {
         NSLayoutConstraint.activate([
             self.heightAnchor.constraint(equalToConstant: 50)
         ])
-
     }
 
     @objc
@@ -78,12 +80,14 @@ public class ButtomComponent: UIButton  {
 
 public extension ButtomComponent {
 
+    /// The configuration options for the button component.
     struct Configuration {
         let title: String
         let style: Style
         let image: UIImage?
         let tintImage: UIColor
 
+        /// Initializes the button configuration with specified parameters.
         public init(title: String, style: Style = .normal, image: UIImage? = nil, tintImage: UIColor = .black) {
             self.title = title
             self.style = style
@@ -91,6 +95,7 @@ public extension ButtomComponent {
             self.tintImage = tintImage
         }
 
+        /// The style options for the button component.
         public enum Style {
             case normal
             case normalCustom(color: ColorValue, titleColor: UIColor)
@@ -99,6 +104,7 @@ public extension ButtomComponent {
         }
     }
 
+    /// Builds the button component with the given configuration.
     func build(config: Configuration) {
         self.config = config
 

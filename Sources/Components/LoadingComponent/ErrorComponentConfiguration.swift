@@ -12,6 +12,10 @@ public struct ErrorComponentButtonConfiguration {
     public let title: String
     public let action: () -> Void
 
+    /// Initializes the error component button configuration.
+    /// - Parameters:
+    ///   - title: The title text for the button.
+    ///   - action: The action to be performed when the button is tapped.
     public init(
         title: String,
         action: @escaping () -> Void
@@ -21,11 +25,17 @@ public struct ErrorComponentButtonConfiguration {
     }
 }
 
+/// Configuration for the error component.
 public struct ErrorComponentConfiguration {
     public let title: String?
     public let errorMessage: String?
     public let buttonConfiguration: ErrorComponentButtonConfiguration?
 
+    /// Initializes the error component configuration.
+    /// - Parameters:
+    ///   - title: The title text for the error component.
+    ///   - errorMessage: The error message to be displayed.
+    ///   - buttonConfiguration: The configuration for the error component button.
     public init(
         title: String?,
         errorMessage: String?,
@@ -36,13 +46,16 @@ public struct ErrorComponentConfiguration {
         self.buttonConfiguration = buttonConfiguration
     }
 
+    /// Creates a generic error component configuration with a default "Try Again" button title.
+    /// - Parameter buttonAction: The action to be performed when the button is tapped.
+    /// - Returns: An instance of `ErrorComponentConfiguration` with generic settings.
     public static func generic(buttonAction: (() -> Void)? = nil) -> ErrorComponentConfiguration {
         return self.init(
-            title: "SomethingWentWrong",
-            errorMessage: "SomethingWentWrong.message",
+            title: "Something Went Wrong",
+            errorMessage: "An error occurred. Please try again later.",
             buttonConfiguration: buttonAction.map {
                 ErrorComponentButtonConfiguration(
-                    title: "TryAgain",
+                    title: "Try Again",
                     action: $0
                 )
             }
@@ -50,11 +63,11 @@ public struct ErrorComponentConfiguration {
     }
 }
 
+/// View component for displaying error messages.
 public final class ErrorComponent: UIView {
 
     private let contentView = UIView()
     private let stackContentView = UIView()
-
 
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -91,6 +104,7 @@ public final class ErrorComponent: UIView {
         return view
     }()
 
+    /// Initializes the error component.
     public init() {
         super.init(frame: CGRect.zero)
         setupViewCodeElement()
@@ -99,6 +113,8 @@ public final class ErrorComponent: UIView {
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
+    /// Configures the error component with the provided configuration.
+    /// - Parameter config: The error component configuration.
     public func build(config: ErrorComponentConfiguration) {
         if let title = config.title {
             titleLabel.text = title
@@ -125,6 +141,8 @@ public final class ErrorComponent: UIView {
         }
     }
 
+    /// Sets the background color of the error component.
+    /// - Parameter color: The color to set as the background color.
     public func setBackgroundColor(_ color: UIColor) {
         //backgroundView.backgroundColor = color
     }
