@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  PrivacyRequestManager.swift
 //  
 //
 //  Created by Gabriel Chirico Mahtuk de Melo Sanzone on 05/04/24.
