@@ -15,6 +15,8 @@ public protocol PrivacyRequestManagerInterface: AnyObject {
 
 public class PrivacyRequestManager: PrivacyRequestManagerInterface {
 
+    public init() { }
+
     public var isCameraPermissionGranted: Bool {
         return AVCaptureDevice.authorizationStatus(for: .video) == .authorized
     }
