@@ -7,37 +7,39 @@
 
 import Foundation
 
-import Foundation
-
-protocol KeychainManagerInterface {
-    func saveToken(data: Data, key: String) -> Bool
+public protocol KeychainManagerInterface {
+    func saveToken(key: String, value: String) -> Bool
     func getToken(key: String) -> String?
     func extrairTokenDoHeader(header: String?) -> String?
     func deleteToken(key: String)
 }
 
-class KeychainManager: KeychainManagerInterface {
+public class KeychainManager: KeychainManagerInterface {
 
     private let serviceName: String
 
-    init(serviceName: String = "KeychainManager") {
+    public init(serviceName: String = "KeychainManager") {
         self.serviceName = serviceName
     }
 
     //data = "\(key):\(token)".data(using: .utf8)
-    func saveToken(data: Data, key: String) -> Bool {
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: serviceName,
-            kSecAttrAccount as String: key,
-            kSecValueData as String: data
-        ]
-        SecItemDelete(query as CFDictionary)
-        SecItemAdd(query as CFDictionary, nil)
-        return true
+   public func saveToken(key: String, value: String) -> Bool {
+        if let data = "\(key):\(value)".data(using: .utf8) {
+            let query: [String: Any] = [
+                kSecClass as String: kSecClassGenericPassword,
+                kSecAttrService as String: serviceName,
+                kSecAttrAccount as String: key,
+                kSecValueData as String: data
+            ]
+
+            SecItemDelete(query as CFDictionary)
+            SecItemAdd(query as CFDictionary, nil)
+            return true
+        }
+        return false
     }
 
-    func getToken(key: String) -> String? {
+    public func getToken(key: String) -> String? {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: serviceName,
@@ -56,7 +58,7 @@ class KeychainManager: KeychainManagerInterface {
         }
     }
 
-    func extrairTokenDoHeader(header: String?) -> String? {
+    public func extrairTokenDoHeader(header: String?) -> String? {
         guard let header else { return nil }
         let components = header.components(separatedBy: ":")
         if components.count >= 2 {
@@ -67,7 +69,7 @@ class KeychainManager: KeychainManagerInterface {
         return nil
     }
 
-    func deleteToken(key: String) {
+    public func deleteToken(key: String) {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: serviceName,
