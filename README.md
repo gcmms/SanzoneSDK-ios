@@ -1,11 +1,11 @@
+
+![Blue Illustrative Happy Earth Day Facebook Cover](https://github.com/gcmms/SanzoneSDK-ios/assets/32177705/ee94c6ec-7ec7-4f3c-971c-d51a3810da1c)
 # SanzoneSDK
 
 Criei este kit de ferramentas para eu usar nos meus projetos, mas deixo publico para quem precisar ;) 
 
-## Requisitos Mínimos
-
-- Swift 5
-- iOS 16+
+[![Swift](https://img.shields.io/badge/Swift-5-orange.svg)](https://swift.org)
+[![iOS](https://img.shields.io/badge/iOS-16+-blue.svg)](https://developer.apple.com/ios/)
 
 ## Instalação
 
