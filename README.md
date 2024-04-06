@@ -17,9 +17,9 @@ Você pode instalar o SDK utilizando o Swift Package Manager (SPM). Basta adicio
 2. Cole o URL do repositório do SanzoneSDK: `https://github.com/gcmms/SanzoneSDK-ios.git`
 3. Siga as instruções na tela para completar a instalação.
 
-### Contribuição
-Se você encontrar um bug ou gostaria de propor uma melhoria, sinta-se à vontade para abrir uma issue ou enviar um pull request.
-
 ```swift
 import SanzoneSDK
 ```
+
+### Contribuição
+Se você encontrar um bug ou gostaria de propor uma melhoria, sinta-se à vontade para abrir uma issue ou enviar um pull request.
