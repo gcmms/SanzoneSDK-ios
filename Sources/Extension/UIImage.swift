@@ -105,6 +105,7 @@ public enum AssetsSystem: String {
     case squareAndArrowDown = "square.and.arrow.down"
     case squareAndArrowUpFill = "square.and.arrow.up.fill"
     case squareAndArrowDownFill = "square.and.arrow.down.fill"
+    case smartPhone = "iphone.smartbatterycase.gen2"
 }
 
 /// Enumeração que representa os nomes dos assets personalizados.
