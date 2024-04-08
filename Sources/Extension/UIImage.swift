@@ -119,5 +119,6 @@ public enum Assets: String {
     case pendingOccurrence
     case waitingOccurrencce
     case photoPickerViewPlaceholder = "PhotoPickerView_PlaceholderImage"
+    case semImagem
     case DemoImage // TODO REMOVER
 }
