@@ -116,6 +116,8 @@ public final class ErrorComponent: UIView {
     /// Configures the error component with the provided configuration.
     /// - Parameter config: The error component configuration.
     public func build(config: ErrorComponentConfiguration) {
+        self.isHidden = false
+        endEditing(true)
         if let title = config.title {
             titleLabel.text = title
             titleLabel.isHidden = false
