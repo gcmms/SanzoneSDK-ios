@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-protocol RegisterTableViewCell: UITableViewCell {
+public protocol RegisterTableViewCell: UITableViewCell {
     static var reuseIdentifier: String { get }
     static func register(_ tableView: UITableView)
 }
 
-extension RegisterTableViewCell {
+public extension RegisterTableViewCell {
     static func register(_ tableView: UITableView) {
         tableView.register(
             self,
