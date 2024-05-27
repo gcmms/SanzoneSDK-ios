@@ -228,4 +228,18 @@ public extension String {
     func formattedNumber(mask: TypeFormart) -> String {
         return formattedNumber(number: self, mask: mask.rawValue)
     }
+    
+    func transformaData(in inputFormat: String = "yyyy-MM-dd HH:mm:ss", out outputFormat: String = "dd/MM/yyyy HH:mm") -> String? {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = inputFormat
+
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = outputFormat
+
+        if let date = dateFormatterGet.date(from: self) {
+            return dateFormatterPrint.string(from: date)
+        } else {
+            return nil
+        }
+    }
 }

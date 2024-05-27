@@ -1,0 +1,15 @@
+{
+  "originHash" : "c20c156869173fb92cdabaaba39fb20a7296d7ae200b07ad05752dca638f2dad",
+  "pins" : [
+    {
+      "identity" : "sanzonesdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gcmms/SanzoneSDK-ios.git",
+      "state" : {
+        "revision" : "ef7637339f955ce3c9660d7f7967206e1e4c3180",
+        "version" : "1.0.8"
+      }
+    }
+  ],
+  "version" : 3
+}
