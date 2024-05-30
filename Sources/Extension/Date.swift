@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
 
     static func dateToString(stringDate: String, _ dateFormat: String = "dd/MM/yyyy") -> Date {
         //let dateString = "13/04/2023"
