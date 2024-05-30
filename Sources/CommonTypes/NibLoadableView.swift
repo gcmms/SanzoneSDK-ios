@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-/*public protocol NibLoadableView: AnyObject {
+public protocol NibLoadableView: AnyObject {
     static var nibName: String { get }
 }
 
@@ -18,4 +18,3 @@ public extension NibLoadableView where Self: UIView {
         return String(describing: self)
     }
 }
-*/

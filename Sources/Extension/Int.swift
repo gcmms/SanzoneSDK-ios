@@ -61,5 +61,60 @@ public extension Int {
 
         return formattedNumber
     }
+    
+    var toString: String {
+        let value = String(self)
+        return value
+    }
+    
+    var maskCPF: String {
+        let value = String(self)
+        var result = ""
+        
+        if value.isCPF {
+            var indice = 0
+            
+            for index in value.indices {
+                let letter = value[index]
+                switch indice {
+                    case 2, 5:
+                        result = "\(result)\(letter)."
+                    case 8:
+                        result = "\(result)\(letter)-"
+                    default:
+                        result = "\(result)\(letter)"
+                }
+                indice = indice + 1
+            }
+        } else {
+            result = value
+        }
+        return result
+    }
+    
+    var maskRG: String {
+        let value = String(self)
+        var result = ""
+        
+        if value.count == 9 {
+            var indice = 0
+            
+            for index in value.indices {
+                let letter = value[index]
+                switch indice {
+                    case 1, 4:
+                        result = "\(result)\(letter)."
+                    case 7:
+                        result = "\(result)\(letter)-"
+                    default:
+                        result = "\(result)\(letter)"
+                }
+                indice = indice + 1
+            }
+        } else {
+            result = value
+        }
+        return result
+    }
 }
 
