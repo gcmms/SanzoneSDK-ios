@@ -154,6 +154,19 @@ public extension String {
 
         return cpf
     }
+    
+    var maskCNPJ: String { 
+        //01.234.567.
+        //53.762.234.0001-32
+        var cpf = self
+        cpf.insert(".", at: cpf.index(cpf.startIndex, offsetBy: 2))
+        cpf.insert(".", at: cpf.index(cpf.startIndex, offsetBy: 6))
+        cpf.insert(".", at: cpf.index(cpf.startIndex, offsetBy: 10))
+        cpf.insert("-", at: cpf.index(cpf.startIndex, offsetBy: 14))
+
+        return cpf
+    }
+
 
     /// Máscara para formatar o número de RG na string.
     var maskRG: String {
