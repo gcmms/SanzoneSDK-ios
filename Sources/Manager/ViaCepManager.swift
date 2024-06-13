@@ -8,13 +8,13 @@
 import Foundation
 
 
-struct ViaCepModel: Codable {
+public struct ViaCepModel: Codable {
     let cep, logradouro, complemento, bairro: String?
     let localidade, uf, ibge, gia: String?
     let ddd, siafi: String?
 }
 
-class ViaCepManager {
+public class ViaCepManager {
     
     func request(cep: String, completion: @escaping (ViaCepModel?, Error?) -> Void) {
         let url = URL(string: "https://viacep.com.br/ws/\(cep)/json/")!
