@@ -16,6 +16,8 @@ public struct ViaCepModel: Codable {
 
 public class ViaCepManager {
     
+    init() {}
+    
     func request(cep: String, completion: @escaping (ViaCepModel?, Error?) -> Void) {
         let url = URL(string: "https://viacep.com.br/ws/\(cep)/json/")!
 
