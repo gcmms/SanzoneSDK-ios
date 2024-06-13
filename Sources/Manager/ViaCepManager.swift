@@ -16,9 +16,9 @@ public struct ViaCepModel: Codable {
 
 public class ViaCepManager {
     
-    init() {}
+    public init() {}
     
-    func request(cep: String, completion: @escaping (ViaCepModel?, Error?) -> Void) {
+    public func request(cep: String, completion: @escaping (ViaCepModel?, Error?) -> Void) {
         let url = URL(string: "https://viacep.com.br/ws/\(cep)/json/")!
 
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
