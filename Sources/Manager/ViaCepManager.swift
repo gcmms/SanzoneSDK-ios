@@ -9,16 +9,16 @@ import Foundation
 
 
 public struct ViaCepModel: Codable {
-    let cep, logradouro, complemento, bairro: String?
-    let localidade, uf, ibge, gia: String?
-    let ddd, siafi: String?
+    public let cep, logradouro, complemento, bairro: String?
+    public let localidade, uf, ibge, gia: String?
+    public let ddd, siafi: String?
 }
 
 public class ViaCepManager {
     
-    init() {}
+    public init() {}
     
-    func request(cep: String, completion: @escaping (ViaCepModel?, Error?) -> Void) {
+    public func request(cep: String, completion: @escaping (ViaCepModel?, Error?) -> Void) {
         let url = URL(string: "https://viacep.com.br/ws/\(cep)/json/")!
 
         let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
