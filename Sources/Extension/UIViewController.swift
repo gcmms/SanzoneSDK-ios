@@ -13,7 +13,7 @@ public extension UIViewController {
     ///
     /// - Parameters:
     ///   - textColor: A cor do texto da barra de navegação. O padrão é branco.
-    func configureNavigationBar(textColor: UIColor = UIColor.white) {
+    func configureNavigationBar(textColor: UIColor = UIColor.white, backgroudColor: UIColor = .clear) {
         // Cria uma nova aparência para a barra de navegação
         let appearance = UINavigationBarAppearance()
 
@@ -24,7 +24,7 @@ public extension UIViewController {
         appearance.largeTitleTextAttributes = [.foregroundColor: textColor]
 
         // Define a cor de fundo da barra de navegação como transparente
-        appearance.backgroundColor = .clear
+        appearance.backgroundColor = backgroudColor
 
         // Remove o efeito de fundo da barra de navegação
         appearance.backgroundEffect = nil
