@@ -86,13 +86,15 @@ public extension ButtomComponent {
         let style: Style
         let image: UIImage?
         let tintImage: UIColor
+        let cornerRadius: CGFloat
 
         /// Initializes the button configuration with specified parameters.
-        public init(title: String, style: Style = .normal, image: UIImage? = nil, tintImage: UIColor = .black) {
+        public init(title: String, style: Style = .normal, image: UIImage? = nil, tintImage: UIColor = .black, cornerRadius: CGFloat = 25) {
             self.title = title
             self.style = style
             self.image = image
             self.tintImage = tintImage
+            self.cornerRadius = cornerRadius
         }
 
         /// The style options for the button component.
@@ -113,7 +115,7 @@ public extension ButtomComponent {
             imageView?.tintColor = config.tintImage
         }
         setTitle(config.title, for: .normal)
-
+        layer.cornerRadius = config.cornerRadius
         switch config.style {
         case .normal:
             backgroundColor = UIColor(value: .buttonColor)
