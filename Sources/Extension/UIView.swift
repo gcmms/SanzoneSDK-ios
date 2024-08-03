@@ -146,6 +146,11 @@ public extension UIView {
     func removeAllSubviews() {
         for view in subviews { view.removeFromSuperview() }
     }
+    
+    /// remove all Gesture Recognizers
+    func removeAllGestureRecognizers() {
+        self.gestureRecognizers?.forEach(self.removeGestureRecognizer)
+    }
 }
 
 public extension CACornerMask {
