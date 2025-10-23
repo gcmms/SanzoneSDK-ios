@@ -5,7 +5,10 @@ import PackageDescription
 
 let package = Package(
     name: "SanzoneSDK",
-    platforms: [.iOS(.v15)],
+    platforms: [
+        .iOS(.v15),
+        .tvOS(.v13)
+    ],
     products: [
         .library(
             name: "SanzoneSDK",
@@ -23,6 +26,5 @@ let package = Package(
         ),
     ]
 )
-
 
 
