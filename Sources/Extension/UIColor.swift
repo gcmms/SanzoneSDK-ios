@@ -9,14 +9,28 @@ import Foundation
 import UIKit
 
 /// Enumeração que representa os valores predefinidos de cores utilizados na aplicação.
-public enum ColorValue: String {
+public enum ColorValue {
     case primaryColor
-    case backgroudColor
+    case backgroundColor
     case cardColor
     case buttonColor
-    case textFieldBackgroud
+    case textFieldBackground
     case labelColor
     case buttonColorError
+    case custom(value: String)
+
+    var value: String {
+        switch self {
+        case .primaryColor: return "primaryColor"
+        case .backgroundColor: return "backgroundColor"
+        case .cardColor: return "cardColor"
+        case .buttonColor: return "buttonColor"
+        case .textFieldBackground: return "textFieldBackground"
+        case .labelColor: return "labelColor"
+        case .buttonColorError: return "buttonColorError"
+        case .custom(let value): return value
+        }
+    }
 }
 
 /// Extensão que adiciona funcionalidades adicionais à classe UIColor.
