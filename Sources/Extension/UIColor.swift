@@ -17,7 +17,6 @@ public enum ColorValue {
     case textFieldBackground
     case labelColor
     case buttonColorError
-    case custom(value: String)
 
     var value: String {
         switch self {
@@ -28,7 +27,6 @@ public enum ColorValue {
         case .textFieldBackground: return "textFieldBackground"
         case .labelColor: return "labelColor"
         case .buttonColorError: return "buttonColorError"
-        case .custom(let value): return value
         }
     }
 }
