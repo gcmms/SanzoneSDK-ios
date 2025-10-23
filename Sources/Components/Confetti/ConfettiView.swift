@@ -10,9 +10,14 @@ import SwiftUI
 
 /// UIViewRepresentable que representa a animação de confetes.
 public struct ConfettiView: UIViewRepresentable {
-    
+
     /// Estado que define se a animação está ativa.
     @Binding var isAnimating: Bool
+    
+    public init(isAnimating: Bool) {
+        self.isAnimating = isAnimating
+    }
+    
 
     public func makeCoordinator() -> Coordinator {
         return Coordinator()
