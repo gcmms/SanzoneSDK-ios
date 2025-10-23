@@ -30,8 +30,7 @@ public class AppReviewManager {
         guard count == threshold else { return }
 
         #if os(tvOS)
-        //SKStoreReviewController.requestReview()
-        //defaults.set(true, forKey: hasReviewedKey)
+        
         #else
         guard let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene else {
             return
