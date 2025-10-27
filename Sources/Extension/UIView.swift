@@ -42,7 +42,7 @@ public extension UIView {
 
     /// Aplica um gradiente à view.
     func setupGradient() {
-        guard let corInicial = UIColor(value: .backgroudColor) else { return }
+        guard let corInicial = UIColor(value: .backgroundColor) else { return }
         let corFinal = corInicial.withAlphaComponent(0.7)
 
         let gradienteLayer = CAGradientLayer()
